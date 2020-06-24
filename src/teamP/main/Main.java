@@ -1,4 +1,4 @@
-package teamP;
+package teamP.main;
 
 public class Main {
 
