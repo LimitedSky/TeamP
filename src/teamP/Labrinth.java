@@ -4,6 +4,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -20,8 +22,8 @@ public class Labrinth extends JFrame {
    private boolean isRightMouseClicked = false;
    
    public Labrinth(int widthCount, int heightCount) {
-      width = widthCount * 50;
-      height = heightCount * 50;
+      width = heightCount * 50;
+      height = widthCount * 50;
       
       
       // get screen size
@@ -83,6 +85,17 @@ public class Labrinth extends JFrame {
             add(map[i][j]);
          }
       }
+      
+      addKeyListener(new KeyAdapter() {
+		@Override
+		public void keyPressed(KeyEvent e) {
+			if(e.getKeyCode() == 10) {
+				System.out.println("Enter is Clicked");
+				ClearMaze cm = new ClearMaze(map);
+				cm.start();
+			}
+		}
+	});
    }
    
    private void changeClicked(String state) {
