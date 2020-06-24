@@ -1,8 +1,8 @@
 package teamP;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.Toolkit;
 import java.awt.event.MouseAdapter;
@@ -53,7 +53,7 @@ public class InputFrame extends JFrame {
 		multiply.setFont(new Font("고딕", Font.PLAIN, 25));
 		startBtn.setFont(new Font("고딕", Font.PLAIN, 25));
 		Container c = getContentPane();
-		c.setLayout(new BorderLayout());
+		c.setLayout(new FlowLayout());
 
 		c.add(widthCount);
 		c.add(multiply);
