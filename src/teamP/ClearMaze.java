@@ -13,13 +13,12 @@ public class ClearMaze extends Thread {
 	private int maxHeight;
 	
 	private final int DELAY_COUNT = 30;
+	private boolean isEnd = false;
 
 	public ClearMaze(JLabel[][] map) {
 		this.map = map;
 		maxWidth = map[0].length;
 		maxHeight = map.length;
-
-		System.out.println("maxWidth : " + maxWidth + " / maxHeight : " + maxHeight);
 	}
 
 	@Override
@@ -30,8 +29,9 @@ public class ClearMaze extends Thread {
 		System.out.println("stack size = " + stack.size());
 		while (stack.size() != 0) {
 			findWay();
+			if(isEnd)
+				break;
 		}
-
 	}
 
 	private synchronized void findWay() {
@@ -40,7 +40,7 @@ public class ClearMaze extends Thread {
 			HashMap<String, String> hm = stack.pop();
 			int x = getIntegerValue(hm, "x");
 			int y = getIntegerValue(hm, "y");
-
+			
 			int count = 0;
 			int reverseCount = -1;
 
@@ -120,6 +120,8 @@ public class ClearMaze extends Thread {
 
 
 	private boolean isPossible(int x, int y) {
+		if(x == map.length-1 && y == map[0].length-1) 
+			isEnd = true;
 		if (x < 0 || y < 0 || x >= maxWidth || y >= maxHeight)
 			return false;
 		else if (map[x][y].getBackground() == Color.black || map[x][y].getBackground() == Color.red)
