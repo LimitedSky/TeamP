@@ -12,7 +12,7 @@ public class ClearMaze extends Thread {
 	private int maxWidth;
 	private int maxHeight;
 	
-	private final int DELAY_COUNT = 30;
+	private final int DELAY_COUNT = 100;
 	private boolean isEnd = false;
 
 	public ClearMaze(JLabel[][] map) {

@@ -15,8 +15,8 @@ import javax.swing.JTextField;
 
 public class InputFrame extends JFrame {
 
-	private final int width = 300;
-	private final int height = 150;
+	private final int width = 350;
+	private final int height = 120;
 
 	private JTextField widthCount;
 	private JTextField heightCount;
@@ -31,7 +31,7 @@ public class InputFrame extends JFrame {
 		int yPos = (int) ((screenSize.getHeight() - height) / 2);
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setTitle("창 크기 설정");
+		setTitle("insert block width x height");
 		setBounds(xPos, yPos, width, height);
 		setSize(width, height);
 
