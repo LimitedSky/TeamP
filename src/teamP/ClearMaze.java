@@ -19,6 +19,7 @@ public class ClearMaze extends Thread {
 		this.map = map;
 		maxWidth = map[0].length;
 		maxHeight = map.length;
+		System.out.println("hello");
 	}
 
 	@Override
